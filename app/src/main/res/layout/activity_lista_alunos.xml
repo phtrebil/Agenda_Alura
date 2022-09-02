@@ -9,11 +9,12 @@
 
     <ListView
         android:id="@+id/lista"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_margin="16sp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
