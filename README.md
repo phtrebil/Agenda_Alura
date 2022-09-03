@@ -9,3 +9,4 @@ Trata-se de um APP de agenda de alunos criada durante o curso de Android da Alur
   
   2. Android parte 2: Android parte 2: avançando com listeners, menu e UI
      - [release/Editando_Aluno_na_Lista](https://github.com/phtrebil/Agenda_Alura/tree/release/Editando_Aluno_na_Lista)
+     - [release/removendo_item_add_menus](https://github.com/phtrebil/Agenda_Alura/tree/release/removendo_item_add_menus)
