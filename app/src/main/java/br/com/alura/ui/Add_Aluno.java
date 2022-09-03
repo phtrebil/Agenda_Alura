@@ -4,9 +4,11 @@ import static br.com.alura.ui.contantesActivities.CHAVE_ALUNO;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.alura.R;
@@ -31,7 +33,21 @@ public class Add_Aluno extends AppCompatActivity {
         setContentView(R.layout.activity_add_aluno);
         inicializacaoDosCampos();
         carregaAluno();
-        configuraBotaoSalvar();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_addaluno_menu_salvar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if(itemId == R.id.menu_salvar){
+            finalizaFormulario();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void carregaAluno() {
@@ -50,14 +66,6 @@ public class Add_Aluno extends AppCompatActivity {
         campoNome.setText(aluno.getNome());
         campoEmail.setText(aluno.getEmail());
         campoTelefone.setText(aluno.getTelefone());
-    }
-
-    private void configuraBotaoSalvar() {
-        Button salvar = findViewById(R.id.salvar);
-        salvar.setOnClickListener(view -> {
-            finalizaFormulario();
-
-        });
     }
 
     private void finalizaFormulario() {

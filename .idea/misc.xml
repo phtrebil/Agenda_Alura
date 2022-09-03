@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/Done_foreground.xml" value="0.309" />
         <entry key="app/src/main/res/layout/activity_add_aluno.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/layout/activity_lista_alunos.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18614130434782608" />
+        <entry key="app/src/main/res/menu/activity_addaluno_menu_salvar.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/menu/activity_listaalunos_menu.xml" value="0.33" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/Done.xml" value="0.309" />
       </map>
     </option>
   </component>
