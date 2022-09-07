@@ -6,4 +6,5 @@
     <string name="e_mail">E-mail</string>
     <string name="salvar">SALVAR</string>
     <string name="salvarAluno">Salvar</string>
+    <string name="remover">Remover</string>
 </resources>

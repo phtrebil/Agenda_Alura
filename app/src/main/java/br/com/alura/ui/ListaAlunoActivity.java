@@ -8,21 +8,18 @@ import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.alura.R;
-import br.com.alura.dao.alunoDAO;
 import br.com.alura.model.Aluno;
 
 public class ListaAlunoActivity extends AppCompatActivity {
 
     public static final String TITULO_LISTA = "Lista de Alunos";
-    private final alunoDAO dao = new alunoDAO();
-    private ListaDeAlunosAdapter adapter;
+    private final ListaAlunoView listaAlunoView = new ListaAlunoView(this);
 
 
     @Override
@@ -33,8 +30,6 @@ public class ListaAlunoActivity extends AppCompatActivity {
         View fab = findViewById(R.id.fab_add);
         configuraFabInsereAluno(fab);
         configuraLista();
-
-
     }
 
     @Override
@@ -47,13 +42,13 @@ public class ListaAlunoActivity extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
         if(itemId == R.id.menu_remover) {
-            AdapterView.AdapterContextMenuInfo menuInfo =
-                    (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-            Aluno alunoEscolhido = (Aluno) adapter.getItem(menuInfo.position);
-            remove(alunoEscolhido);
+            listaAlunoView.dialogoConfirmaRemocao(item);
+
         }
         return super.onContextItemSelected(item);
     }
+
+
 
     private void configuraFabInsereAluno(View fab) {
         fab.setOnClickListener((view -> startActivity(new Intent(this, Add_Aluno.class))));
@@ -62,24 +57,19 @@ public class ListaAlunoActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        atualizaAlunos();
+        listaAlunoView.atualizaAlunos();
     }
 
-    private void atualizaAlunos() {
-        adapter.atualiza(dao.todos());
-    }
+
 
     private void configuraLista() {
         ListView listaDeAlunos = findViewById(R.id.lista);
-        configuraAdapter(listaDeAlunos);
+        listaAlunoView.configuraAdapter(listaDeAlunos);
         configuraListenerDeClickPorItem(listaDeAlunos);
         registerForContextMenu(listaDeAlunos);
     }
 
-    private void remove(Aluno aluno) {
-        dao.remove(aluno);
-        adapter.remove(aluno);
-    }
+
 
     private void configuraListenerDeClickPorItem(ListView listaDeAlunos) {
         listaDeAlunos.setOnItemClickListener((adapterView, view, posicao, id) -> {
@@ -96,8 +86,5 @@ public class ListaAlunoActivity extends AppCompatActivity {
         startActivity(vaiParaFormularioActivity);
     }
 
-    private void configuraAdapter(ListView listaDeAlunos) {
-        adapter = new ListaDeAlunosAdapter(this);
-        listaDeAlunos.setAdapter(adapter);
-        }
+
 }

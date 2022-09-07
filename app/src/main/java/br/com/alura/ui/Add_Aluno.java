@@ -18,7 +18,7 @@ import br.com.alura.model.Aluno;
 public class Add_Aluno extends AppCompatActivity {
 
     private static final String TITULO_NOVO_ALUNO = "Novo aluno";
-    private static final String TITULO_EDITA_ALUNO = "Edita aluno";
+    private static final String TITULO_EDITA_ALUNO = "Editar aluno";
     private EditText campoNome;
     private EditText campoTelefone;
     private EditText campoEmail;
