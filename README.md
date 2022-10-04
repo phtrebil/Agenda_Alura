@@ -13,8 +13,13 @@ Trata-se de um APP de agenda de alunos criada durante o curso de Android da Alur
     
   3. Android parte 3: refinando o projeto
   
+<<<<<<< HEAD
      - [atualizando_layout_utilizando_camada_application](https://github.com/phtrebil/Agenda_Alura/tree/release/atualizando_layout_utilizando_camada_application)
      
   4. Android Room parte 1: entendendo e aplicando a persistência de dados com ORM
   
      - [release/inserindo_database](https://github.com/phtrebil/Agenda_Alura/tree/release/inserindo_database)
+=======
+     - [atualizando_layout_utilizando_camada_application](https://github.com/phtrebil/Agenda_Alura/tree/release/atualizando_layout_utilizando_camada_application)     
+     - [release/finalizando_app_refatorando_código](https://github.com/phtrebil/Agenda_Alura/tree/release/finalizando_app_refatorando_c%C3%B3digo)
+>>>>>>> refs/remotes/origin/main
