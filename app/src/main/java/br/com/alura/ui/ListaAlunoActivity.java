@@ -19,13 +19,14 @@ import br.com.alura.model.Aluno;
 public class ListaAlunoActivity extends AppCompatActivity {
 
     public static final String TITULO_LISTA = "Lista de Alunos";
-    private final ListaAlunoView listaAlunoView = new ListaAlunoView(this);
+    private ListaAlunoView listaAlunoView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_alunos);
+        listaAlunoView = new ListaAlunoView(this);
         setTitle(TITULO_LISTA);
         View fab = findViewById(R.id.fab_add);
         configuraFabInsereAluno(fab);
