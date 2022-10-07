@@ -18,4 +18,5 @@ Trata-se de um APP de agenda de alunos criada durante o curso de Android da Alur
   4. Android Room parte 1: entendendo e aplicando a persistência de dados com ORM
   
      - [release/inserindo_database](https://github.com/phtrebil/Agenda_Alura/tree/release/inserindo_database)
+     - [release/implementando_migrations](https://github.com/phtrebil/Agenda_Alura/tree/release/implementando_migrations)
 

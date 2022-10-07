@@ -7,11 +7,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
-import androidx.room.Room;
 
-import br.com.alura.DataBase.DataBase;
+import br.com.alura.DataBase.AgendaDatabase;
 import br.com.alura.DataBase.dao.RoomAlunoDao;
-import br.com.alura.dao.alunoDAO;
 import br.com.alura.model.Aluno;
 
 public class ListaAlunoView {
@@ -23,7 +21,7 @@ public class ListaAlunoView {
     public ListaAlunoView(Context context) {
         this.context = context;
         this.adapter = new ListaDeAlunosAdapter(this.context);
-        dao = Room.databaseBuilder(context, DataBase.class, "agenda.db").allowMainThreadQueries().build().getRoomAlunoDao();
+        dao = AgendaDatabase.getInstance(this.context).getRoomAlunoDao();
 
     }
 

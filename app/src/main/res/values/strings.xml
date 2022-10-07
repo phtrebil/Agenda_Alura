@@ -7,4 +7,5 @@
     <string name="salvar">SALVAR</string>
     <string name="salvarAluno">Salvar</string>
     <string name="remover">Remover</string>
+    <string name="sobrenome">sobrenome</string>
 </resources>
