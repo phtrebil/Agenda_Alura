@@ -11,7 +11,7 @@ import java.util.List;
 import br.com.alura.model.Aluno;
 
 @Dao
-public interface RoomAlunoDao {
+public interface AlunoDao {
 
     @Insert
     void salva(Aluno aluno);

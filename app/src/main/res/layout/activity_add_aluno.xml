@@ -22,21 +22,13 @@
         android:hint="@string/nome"
         />
 
-    <EditText
-        android:id="@+id/sobrenome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16sp"
-        android:hint="@string/sobrenome"
-        app:layout_constraintTop_toBottomOf="@id/nome"
-        />
 
     <EditText
         android:id="@+id/telefone"
         android:inputType="phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/sobrenome"
+        app:layout_constraintTop_toBottomOf="@+id/nome"
         android:layout_margin="16sp"
         android:hint="@string/telefone"
 

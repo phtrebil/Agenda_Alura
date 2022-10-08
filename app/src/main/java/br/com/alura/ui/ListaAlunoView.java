@@ -9,13 +9,13 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 
 import br.com.alura.DataBase.AgendaDatabase;
-import br.com.alura.DataBase.dao.RoomAlunoDao;
+import br.com.alura.DataBase.dao.AlunoDao;
 import br.com.alura.model.Aluno;
 
 public class ListaAlunoView {
 
     private final ListaDeAlunosAdapter adapter;
-    private final RoomAlunoDao dao;
+    private final AlunoDao dao;
     private final Context context;
 
     public ListaAlunoView(Context context) {

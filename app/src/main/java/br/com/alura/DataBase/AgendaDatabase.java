@@ -1,36 +1,34 @@
 package br.com.alura.DataBase;
 
+import static br.com.alura.DataBase.AgendaMigrations.TODAS_MIGRATIONS;
+
 import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import br.com.alura.DataBase.dao.RoomAlunoDao;
+import br.com.alura.DataBase.conversor.Conversor;
+import br.com.alura.DataBase.dao.AlunoDao;
 import br.com.alura.model.Aluno;
 
-@Database(entities ={Aluno.class}, version = 2, exportSchema = false)
-
+@Database(entities ={Aluno.class}, version = 4, exportSchema = false)
+@TypeConverters({Conversor.class})
 public abstract class AgendaDatabase extends RoomDatabase {
 
     public static final String DB = "agenda.db";
 
-    public abstract RoomAlunoDao getRoomAlunoDao();
+
+    public abstract AlunoDao getRoomAlunoDao();
 
     public static AgendaDatabase getInstance(Context context) {
         return Room.databaseBuilder(context, AgendaDatabase.class, DB)
                 .allowMainThreadQueries()
-                .addMigrations(
-                        new Migration(1, 2) {
-                            @Override
-                            public void migrate(@NonNull SupportSQLiteDatabase database) {
-                                database.execSQL("ALTER TABLE aluno ADD COLUMN sobrenome TEXT");
-                            }
-                        }
-                )
+                .addMigrations(TODAS_MIGRATIONS)
                 .build();
     }
 

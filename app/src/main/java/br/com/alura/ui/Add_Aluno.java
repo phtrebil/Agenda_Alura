@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.alura.DataBase.AgendaDatabase;
-import br.com.alura.DataBase.dao.RoomAlunoDao;
+import br.com.alura.DataBase.dao.AlunoDao;
 import br.com.alura.R;
 import br.com.alura.model.Aluno;
 
@@ -21,10 +21,9 @@ public class Add_Aluno extends AppCompatActivity {
     private static final String TITULO_NOVO_ALUNO = "Novo aluno";
     private static final String TITULO_EDITA_ALUNO = "Editar aluno";
     private EditText campoNome;
-    private EditText campoSobrenome;
     private EditText campoTelefone;
     private EditText campoEmail;
-    private RoomAlunoDao dao;
+    private AlunoDao dao;
     private Aluno aluno;
 
 
@@ -68,7 +67,6 @@ public class Add_Aluno extends AppCompatActivity {
 
     private void preencheCampo() {
         campoNome.setText(aluno.getNome());
-        campoSobrenome.setText(aluno.getSobrenome());
         campoEmail.setText(aluno.getEmail());
         campoTelefone.setText(aluno.getTelefone());
     }
@@ -85,7 +83,6 @@ public class Add_Aluno extends AppCompatActivity {
 
     private void inicializacaoDosCampos() {
         campoNome = findViewById(R.id.nome);
-        campoSobrenome = findViewById(R.id.sobrenome);
         campoTelefone = findViewById(R.id.telefone);
         campoEmail = findViewById(R.id.email);
     }
@@ -93,12 +90,10 @@ public class Add_Aluno extends AppCompatActivity {
 
     private void preencheAluno() {
         String nome = campoNome.getText().toString();
-        String sobrenome = campoSobrenome.getText().toString();
         String telefone = campoTelefone.getText().toString();
         String email = campoEmail.getText().toString();
 
         aluno.setNome(nome);
-        aluno.setSobrenome(sobrenome);
         aluno.setEmail(email);
         aluno.setTelefone(telefone);
 
