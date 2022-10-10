@@ -22,6 +22,7 @@ public class Add_Aluno extends AppCompatActivity {
     private static final String TITULO_EDITA_ALUNO = "Editar aluno";
     private EditText campoNome;
     private EditText campoTelefone;
+    private EditText campoCelular;
     private EditText campoEmail;
     private AlunoDao dao;
     private Aluno aluno;
@@ -69,6 +70,7 @@ public class Add_Aluno extends AppCompatActivity {
         campoNome.setText(aluno.getNome());
         campoEmail.setText(aluno.getEmail());
         campoTelefone.setText(aluno.getTelefone());
+        campoCelular.setText(aluno.getCelular());
     }
 
     private void finalizaFormulario() {
@@ -84,6 +86,7 @@ public class Add_Aluno extends AppCompatActivity {
     private void inicializacaoDosCampos() {
         campoNome = findViewById(R.id.nome);
         campoTelefone = findViewById(R.id.telefone);
+        campoCelular = findViewById(R.id.celular);
         campoEmail = findViewById(R.id.email);
     }
 
@@ -91,9 +94,11 @@ public class Add_Aluno extends AppCompatActivity {
     private void preencheAluno() {
         String nome = campoNome.getText().toString();
         String telefone = campoTelefone.getText().toString();
+        String celular = campoCelular.getText().toString();
         String email = campoEmail.getText().toString();
 
         aluno.setNome(nome);
+        aluno.setCelular(celular);
         aluno.setEmail(email);
         aluno.setTelefone(telefone);
 

@@ -8,4 +8,5 @@
     <string name="salvarAluno">Salvar</string>
     <string name="remover">Remover</string>
     <string name="sobrenome">sobrenome</string>
+    <string name="celular">Celular</string>
 </resources>

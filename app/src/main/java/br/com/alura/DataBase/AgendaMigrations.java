@@ -33,5 +33,13 @@ public class AgendaMigrations {
             database.execSQL("ALTER TABLE aluno ADD COLUMN momentoDeCadastro INTEGER");
         }
     };
-    static final Migration[] TODAS_MIGRATIONS = {MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4};
+
+    private static final Migration MIGRATION_4_5 = new Migration(4, 5) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE aluno ADD COLUMN celular TEXT");
+        }
+    };
+
+    static final Migration[] TODAS_MIGRATIONS = {MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5};
 }

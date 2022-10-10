@@ -21,3 +21,6 @@ Trata-se de um APP de agenda de alunos criada durante o curso de Android da Alur
      - [release/implementando_migrations](https://github.com/phtrebil/Agenda_Alura/tree/release/implementando_migrations)
      - [release/estudando_SQLite](https://github.com/phtrebil/Agenda_Alura/tree/release/estudando_SQLite)
 
+  5. Android Room parte 2: implementando operações assíncronas
+
+      - [release/suportando_mais_de_um_telefone](https://github.com/phtrebil/Agenda_Alura/tree/release/suportando_mais_de_um_telefone)

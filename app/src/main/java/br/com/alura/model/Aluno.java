@@ -16,6 +16,7 @@ public class Aluno implements Serializable {
     private int id = 0;
     private String nome;
     private String telefone;
+    private String celular;
     private String email;
     private Calendar momentoDeCadastro = Calendar.getInstance();
 
@@ -40,7 +41,6 @@ public class Aluno implements Serializable {
         this.email = email;
     }
 
-
     public String getNome() {
         return nome;
     }
@@ -61,6 +61,13 @@ public class Aluno implements Serializable {
         this.id = id;
     }
 
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
 
     @NonNull
     @Override
