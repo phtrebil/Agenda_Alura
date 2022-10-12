@@ -10,16 +10,22 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.alura.DataBase.AgendaDatabase;
+import br.com.alura.DataBase.dao.TelefoneDao;
 import br.com.alura.R;
 import br.com.alura.model.Aluno;
+import br.com.alura.model.Telefone;
 
 public class ListaDeAlunosAdapter extends BaseAdapter {
 
     private final List<Aluno> alunos = new ArrayList<>();
     private final Context context;
+    private final TelefoneDao dao;
 
     public ListaDeAlunosAdapter(Context context) {
         this.context = context;
+        dao = AgendaDatabase.getInstance(context).getTelefoneDao();
+
     }
 
     @Override
@@ -49,7 +55,8 @@ public class ListaDeAlunosAdapter extends BaseAdapter {
         TextView alunoNome = viewCriada.findViewById(R.id.aluno_item_nome);
         alunoNome.setText(alunoDevolvido.getNome());
         TextView alunoTelefone = viewCriada.findViewById(R.id.aluno_item_telefone);
-        alunoTelefone.setText(alunoDevolvido.getTelefone());
+        Telefone primeiroTelefone = dao.buscaPrimeiroTelefoneDoAluno(alunoDevolvido.getId());
+        alunoTelefone.setText(primeiroTelefone.getNumero());
     }
 
     private View criaView(ViewGroup viewGroup) {

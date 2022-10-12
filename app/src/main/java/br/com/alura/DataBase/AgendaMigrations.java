@@ -1,8 +1,12 @@
 package br.com.alura.DataBase;
 
+import static br.com.alura.model.TipoTelefone.FIXO;
+
 import androidx.annotation.NonNull;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+
+import br.com.alura.model.TipoTelefone;
 
 public class AgendaMigrations {
     private static final Migration MIGRATION_1_2 = new Migration(1, 2) {
@@ -41,5 +45,36 @@ public class AgendaMigrations {
         }
     };
 
-    static final Migration[] TODAS_MIGRATIONS = {MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5};
+    private static final Migration MIGRATION_5_6 = new Migration(5, 6) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("CREATE TABLE IF NOT EXISTS `Aluno_novo` (" +
+                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                    "`nome` TEXT, " +
+                    "`email` TEXT, " +
+                    "`momentoDeCadastro` INTEGER)");
+
+            database.execSQL("INSERT INTO Aluno_novo (id, nome, email, momentoDeCadastro) " +
+                    "SELECT id, nome, email, momentoDeCadastro FROM aluno");
+
+            database.execSQL("CREATE TABLE IF NOT EXISTS `Telefone` (" +
+                    "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                    "`numero` TEXT, " +
+                    "`tipo` TEXT, " +
+                    "`alunoId` INTEGER NOT NULL)");
+
+            database.execSQL("INSERT INTO Telefone (numero, alunoId) " +
+                    "SELECT telefone, id FROM aluno");
+
+            database.execSQL("UPDATE Telefone SET tipo = ?", new TipoTelefone[] {FIXO});
+
+            database.execSQL("DROP TABLE aluno");
+
+            database.execSQL("ALTER TABLE Aluno_novo RENAME TO aluno");
+
+        }
+    };
+
+    static final Migration[] TODAS_MIGRATIONS = {MIGRATION_1_2, MIGRATION_2_3,
+            MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6};
 }

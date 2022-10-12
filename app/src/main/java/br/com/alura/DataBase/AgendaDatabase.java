@@ -13,11 +13,14 @@ import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import br.com.alura.DataBase.conversor.Conversor;
+import br.com.alura.DataBase.conversor.TelefoneConvesor;
 import br.com.alura.DataBase.dao.AlunoDao;
+import br.com.alura.DataBase.dao.TelefoneDao;
 import br.com.alura.model.Aluno;
+import br.com.alura.model.Telefone;
 
-@Database(entities ={Aluno.class}, version = 5, exportSchema = false)
-@TypeConverters({Conversor.class})
+@Database(entities ={Aluno.class, Telefone.class}, version = 6, exportSchema = false)
+@TypeConverters({Conversor.class, TelefoneConvesor.class})
 public abstract class AgendaDatabase extends RoomDatabase {
 
     public static final String DB = "agenda.db";
@@ -32,4 +35,5 @@ public abstract class AgendaDatabase extends RoomDatabase {
                 .build();
     }
 
+    public abstract TelefoneDao getTelefoneDao();
 }
