@@ -26,3 +26,4 @@ Trata-se de um APP de agenda de alunos criada durante o curso de Android da Alur
       - [release/suportando_mais_de_um_telefone](https://github.com/phtrebil/Agenda_Alura/tree/release/suportando_mais_de_um_telefone)
       - [release/relacionando_entidades](https://github.com/phtrebil/Agenda_Alura/tree/release/relacionando_entidades)
       - [release/integrando_formulario_com_novo_relacionamento](https://github.com/phtrebil/Agenda_Alura/tree/release/integrando_formulario_com_novo_relacionamento)
+      - [release/executando_operacoes_assíncronas](https://github.com/phtrebil/Agenda_Alura/tree/release/executando_operacoes_assíncronas)

@@ -21,7 +21,7 @@ import br.com.alura.model.Aluno;
 import br.com.alura.model.Telefone;
 import br.com.alura.model.TipoTelefone;
 
-public class FormularioAluno extends AppCompatActivity {
+public class FormularioAlunoActivity extends AppCompatActivity {
 
     private static final String TITULO_NOVO_ALUNO = "Novo aluno";
     private static final String TITULO_EDITA_ALUNO = "Edita aluno";

@@ -4,13 +4,10 @@ import static br.com.alura.DataBase.AgendaMigrations.TODAS_MIGRATIONS;
 
 import android.content.Context;
 
-import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
-import androidx.room.migration.Migration;
-import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import br.com.alura.DataBase.conversor.Conversor;
 import br.com.alura.DataBase.conversor.TelefoneConvesor;
@@ -30,7 +27,6 @@ public abstract class AgendaDatabase extends RoomDatabase {
 
     public static AgendaDatabase getInstance(Context context) {
         return Room.databaseBuilder(context, AgendaDatabase.class, DB)
-                .allowMainThreadQueries()
                 .addMigrations(TODAS_MIGRATIONS)
                 .build();
     }

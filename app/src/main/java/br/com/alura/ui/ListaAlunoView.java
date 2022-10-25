@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 
 import br.com.alura.DataBase.AgendaDatabase;
 import br.com.alura.DataBase.dao.AlunoDao;
+import br.com.alura.asynctask.BuscaAlunosTask;
+import br.com.alura.asynctask.RemoveAlunoTask;
 import br.com.alura.model.Aluno;
 
 public class ListaAlunoView {
@@ -40,12 +42,12 @@ public class ListaAlunoView {
     }
 
     public void atualizaAlunos() {
-        adapter.atualiza(dao.todos());
+        new BuscaAlunosTask(dao, adapter).execute();
     }
 
     public void remove(Aluno aluno) {
-        dao.remove(aluno);
-        adapter.remove(aluno);
+        new RemoveAlunoTask(dao, adapter, aluno).execute();
+
     }
 
     public void configuraAdapter(ListView listaDeAlunos) {
