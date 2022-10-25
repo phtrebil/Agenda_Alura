@@ -15,7 +15,6 @@ import br.com.alura.DataBase.dao.TelefoneDao;
 import br.com.alura.R;
 import br.com.alura.asynctask.BuscaPrimeiroTelefoneDoAlunoTask;
 import br.com.alura.model.Aluno;
-import br.com.alura.model.Telefone;
 
 public class ListaDeAlunosAdapter extends BaseAdapter {
 
@@ -56,7 +55,9 @@ public class ListaDeAlunosAdapter extends BaseAdapter {
         TextView alunoNome = viewCriada.findViewById(R.id.aluno_item_nome);
         alunoNome.setText(aluno.getNome());
         TextView alunoTelefone = viewCriada.findViewById(R. id.aluno_item_telefone);
-        new BuscaPrimeiroTelefoneDoAlunoTask(dao, alunoTelefone, aluno.getId()).execute();
+        new BuscaPrimeiroTelefoneDoAlunoTask(dao, aluno.getId(), telefoneEncontrado->{
+            alunoTelefone.setText(telefoneEncontrado.getNumero());
+        }).execute();
 
     }
 
