@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Agenda"
         tools:targetApi="31">
         <activity
-            android:name=".ui.Add_Aluno"
+            android:name=".ui.FormularioAluno"
             android:exported="false" />
         <activity
             android:name=".ui.ListaAlunoActivity"

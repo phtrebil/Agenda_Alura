@@ -52,7 +52,7 @@ public class ListaAlunoActivity extends AppCompatActivity {
 
 
     private void configuraFabInsereAluno(View fab) {
-        fab.setOnClickListener((view -> startActivity(new Intent(this, Add_Aluno.class))));
+        fab.setOnClickListener((view -> startActivity(new Intent(this, FormularioAluno.class))));
     }
 
     @Override
@@ -82,7 +82,7 @@ public class ListaAlunoActivity extends AppCompatActivity {
     }
 
     private void abreFormularioModoEditaAluno(Aluno aluno) {
-        Intent vaiParaFormularioActivity = new Intent(ListaAlunoActivity.this, Add_Aluno.class);
+        Intent vaiParaFormularioActivity = new Intent(ListaAlunoActivity.this, FormularioAluno.class);
         vaiParaFormularioActivity.putExtra(CHAVE_ALUNO, aluno);
         startActivity(vaiParaFormularioActivity);
     }

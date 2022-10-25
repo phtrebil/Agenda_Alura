@@ -61,12 +61,10 @@ public class AgendaMigrations {
                     "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
                     "`numero` TEXT, " +
                     "`tipo` TEXT, " +
-                    "`alunoId` INTEGER NOT NULL)");
+                    "`alunoId`, INTEGER NOT NULL)");
 
             database.execSQL("INSERT INTO Telefone (numero, alunoId) " +
                     "SELECT telefone, id FROM aluno");
-
-            database.execSQL("UPDATE Telefone SET tipo = ?", new TipoTelefone[] {FIXO});
 
             database.execSQL("DROP TABLE aluno");
 

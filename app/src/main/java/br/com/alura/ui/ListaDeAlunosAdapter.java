@@ -51,11 +51,11 @@ public class ListaDeAlunosAdapter extends BaseAdapter {
         return viewCriada;
     }
 
-    private void vinculaInfo(View viewCriada, Aluno alunoDevolvido) {
+    private void vinculaInfo(View viewCriada, Aluno aluno) {
         TextView alunoNome = viewCriada.findViewById(R.id.aluno_item_nome);
-        alunoNome.setText(alunoDevolvido.getNome());
-        TextView alunoTelefone = viewCriada.findViewById(R.id.aluno_item_telefone);
-        Telefone primeiroTelefone = dao.buscaPrimeiroTelefoneDoAluno(alunoDevolvido.getId());
+        alunoNome.setText(aluno.getNome());
+        TextView alunoTelefone = viewCriada.findViewById(R. id.aluno_item_telefone);
+        Telefone primeiroTelefone = dao.buscaPrimeiroTelefoneDoAluno(aluno.getId());
         alunoTelefone.setText(primeiroTelefone.getNumero());
     }
 
